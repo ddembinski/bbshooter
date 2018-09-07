@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - LiveBall
+  - DeadBall
+  - IgnoreCollision
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ignore Collision
+  - Projectile
+  - Walls
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 156293581
+    locked: 0
+  - name: Truck
+    uniqueID: 512666051
+    locked: 0
+  - name: Player
+    uniqueID: 996288415
+    locked: 0
+  - name: Enemies
+    uniqueID: 1936914611
+    locked: 0
+  - name: Projectiles
+    uniqueID: 520182383
+    locked: 0
