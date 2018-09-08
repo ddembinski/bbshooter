@@ -84,12 +84,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1082133905846218}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14cb58229408a0b4ca1fed72bb92db5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   english: 0
+  needsReset: 1
 --- !u!212 &212985975859060636
 SpriteRenderer:
   m_ObjectHideFlags: 1

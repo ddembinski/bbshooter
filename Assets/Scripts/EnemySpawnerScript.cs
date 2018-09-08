@@ -13,15 +13,19 @@ public class EnemySpawnerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Time.time > nextSpawn) {
+
+    // Update is called once per frame
+    void Update() {
+        if (Time.time > nextSpawn) {
             nextSpawn = Time.time + spawnRate;
-            randX = Random.Range(-2.15f,2.15f);
-            whereToSpawn = new Vector2(randX, transform.position.y);
+            randX = Random.Range(-2.15f, 2.15f);
+            if (transform.position.y > 30) {
+                whereToSpawn = new Vector2(randX, -10);
+            } else {
+                whereToSpawn = new Vector2(randX, transform.position.y);
+            }
             GameObject cretin = Instantiate(enemy, whereToSpawn, Quaternion.identity);
-            Destroy(cretin, 10f);
+            Destroy(cretin, 15f);
         }
     }
 }
