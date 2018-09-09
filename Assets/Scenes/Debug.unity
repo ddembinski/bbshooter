@@ -603,7 +603,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   projectile: {fileID: 1082133905846218, guid: 0fdb81ca6ffd1e14a9ba9b9a5eebfc64, type: 2}
-  velocity: 8
+  velocity: 10
 --- !u!95 &1698603148
 Animator:
   serializedVersion: 3
