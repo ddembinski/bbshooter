@@ -248,6 +248,7 @@ MonoBehaviour:
   forwardSpeed: 1
   reset: 0
   endless: 1
+  activeSceneIndex: 0
 --- !u!212 &434473488
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -410,10 +411,11 @@ AudioSource:
   m_GameObject: {fileID: 1182374390}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 63ab7a8f30822074eb805b342559975e,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 6074aceed28253f44ae149abe0b67b6b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.45
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
