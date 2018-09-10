@@ -29,8 +29,8 @@ public class ThrowBall : MonoBehaviour {
         }
 
         anim = GetComponent<Animator>();
-
-	}
+        projectile.GetComponent<TrailRenderer>().enabled = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -61,6 +61,7 @@ public class ThrowBall : MonoBehaviour {
         if (Input.GetButton("Fire2") && chargeTimer < maxCharge) {
             anim.SetBool("WindUp", true);
             chargeTimer += Time.deltaTime;
+            projectile.GetComponent<TrailRenderer>().enabled = true;
         } else if (Input.GetButton("Fire2") && chargeTimer >= maxCharge) {
             chargeTimer = 1.5f;
         } 
@@ -76,6 +77,8 @@ public class ThrowBall : MonoBehaviour {
             mass = prevMass;
             chargeTimer = 0.0f;
             justThrown = true;
+            projectile.GetComponent<TrailRenderer>().enabled = false;
+
         } else if (Input.GetButtonUp("Fire2") && chargeTimer < (maxCharge - 0.1f)) {
             chargeTimer = 0.0f;
             anim.SetBool("WindUp", false);
@@ -101,7 +104,7 @@ public class ThrowBall : MonoBehaviour {
         ball.GetComponent<Rigidbody2D>().velocity = (normalizedDirection * velocity);
         //ball.GetComponent<Rigidbody2D>().AddTorque(torque, ForceMode2D.Impulse);
         ball.GetComponent<BallScript>().english = english;
-        Destroy(ball, 5f);
+        Destroy(ball, 10f);
         
     }
 

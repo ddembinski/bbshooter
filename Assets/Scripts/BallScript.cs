@@ -30,5 +30,9 @@ public class BallScript : MonoBehaviour {
             transform.Translate(0, -15, 0);
             needsReset = false;
         }
+
+        if ((gameObject.transform.position.x - player.transform.position.x) > 30 ) {
+            Destroy(gameObject);
+        }
     }
 }

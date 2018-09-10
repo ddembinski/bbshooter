@@ -10,6 +10,8 @@ public class TruckScript : MonoBehaviour {
     public bool reset = false;
     public bool endless = true;
     public int activeSceneIndex;
+    public bool autoForward = true;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -18,11 +20,31 @@ public class TruckScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetAxisRaw("Horizontal") < 0) {
-            transform.Translate((truckSpeed * Time.deltaTime) * -1, 0,  0);
-        } else if (Input.GetAxisRaw("Horizontal") > 0) {
-            transform.Translate(truckSpeed * Time.deltaTime, 0, 0);
+        Vector2 movement = Vector2.zero;
+
+        if (autoForward) {
+            movement.y = (transform.up * Time.deltaTime * forwardSpeed).y;
         }
+
+        if (Input.GetAxisRaw("Horizontal") < 0) {
+            //transform.Translate((truckSpeed * Time.deltaTime) * -1, 0, 0);
+            movement.x = (transform.right * Time.deltaTime * -truckSpeed).x;
+        } else if (Input.GetAxisRaw("Horizontal") > 0) {
+            //transform.Translate(truckSpeed * Time.deltaTime, 0, 0);
+            movement.x = (transform.right * Time.deltaTime * truckSpeed).x;
+        }
+        if (Input.GetAxisRaw("Vertical") < 0) {
+            //transform.Translate(0, (truckSpeed * Time.deltaTime) * -1, 0);
+            movement.y = (transform.up * Time.deltaTime * -truckSpeed).y;
+        } else if (Input.GetAxisRaw("Vertical") > 0) {
+            //transform.Translate(0, (truckSpeed * Time.deltaTime) * 1, 0);
+            movement.y = (transform.up * Time.deltaTime * truckSpeed).y;
+        }
+
+        movement = movement + (Vector2)(transform.position);
+
+        gameObject.GetComponent<Rigidbody2D>().MovePosition(movement);
+        //rigidbody2D.MovePosition(movement);
 
         if (Input.GetKey(KeyCode.Escape)) {
             activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -33,7 +55,7 @@ public class TruckScript : MonoBehaviour {
 
 
 
-        transform.Translate(0, forwardSpeed * Time.deltaTime, 0);
+        //transform.Translate(0, forwardSpeed * Time.deltaTime, 0);
 
         if ((transform.position.y > 10) && endless) {
             reset = true;
