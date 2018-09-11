@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TruckScript : MonoBehaviour {
 
-    public float truckSpeed = 0.0000001f;
+    public float moveSpeed = 0.0000001f;
     public float forwardSpeed = 0.0000001f;
     public bool reset = false;
     public bool endless = true;
@@ -28,17 +28,17 @@ public class TruckScript : MonoBehaviour {
 
         if (Input.GetAxisRaw("Horizontal") < 0) {
             //transform.Translate((truckSpeed * Time.deltaTime) * -1, 0, 0);
-            movement.x = (transform.right * Time.deltaTime * -truckSpeed).x;
+            movement.x = (transform.right * Time.deltaTime * -moveSpeed).x;
         } else if (Input.GetAxisRaw("Horizontal") > 0) {
             //transform.Translate(truckSpeed * Time.deltaTime, 0, 0);
-            movement.x = (transform.right * Time.deltaTime * truckSpeed).x;
+            movement.x = (transform.right * Time.deltaTime * moveSpeed).x;
         }
         if (Input.GetAxisRaw("Vertical") < 0) {
             //transform.Translate(0, (truckSpeed * Time.deltaTime) * -1, 0);
-            movement.y = (transform.up * Time.deltaTime * -truckSpeed).y;
+            movement.y = (transform.up * Time.deltaTime * -moveSpeed).y;
         } else if (Input.GetAxisRaw("Vertical") > 0) {
             //transform.Translate(0, (truckSpeed * Time.deltaTime) * 1, 0);
-            movement.y = (transform.up * Time.deltaTime * truckSpeed).y;
+            movement.y = (transform.up * Time.deltaTime * moveSpeed).y;
         }
 
         movement = movement + (Vector2)(transform.position);

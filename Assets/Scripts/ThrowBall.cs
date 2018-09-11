@@ -10,19 +10,47 @@ public class ThrowBall : MonoBehaviour {
     public float Damage = 1;
     public LayerMask whatToHit;
     public GameObject projectile;
+    private CameraEffects camEffects;
     public float velocity = 5;
+    public float slowdownFactor = 0.0f;
+    public float slowdownLength = 2f;
     //private float torque = 0f;
     float mass = 1f;
     int english = 0;
     float chargeTimer = 0f;
     float maxCharge = 1.1f;
     private bool justThrown = false;
+    public bool canParry = false;
 
     //float timeToThrow = 0;
     Transform releasePoint;
 
-	// Use this for initialization
-	void Awake () {
+    public void OnTriggerStay2D(Collider2D collision) {
+        if ((collision.gameObject.tag == "EnemyProjectile")) {
+            if (Input.GetButtonDown("Fire2")) {
+                Debug.Log("parrying");
+                Time.timeScale = slowdownFactor;
+                camEffects.Shake(0.2f);
+                //camEffects.Zoom();
+                collision.GetComponent<Rigidbody2D>().mass *= 10;
+                collision.GetComponent<Rigidbody2D>().velocity = (collision.GetComponent<Rigidbody2D>().velocity * -1) * 10;
+                collision.gameObject.tag = "LiveBall";
+                collision.gameObject.layer = 9;
+                collision.GetComponent<TrailRenderer>().enabled = true;
+                //collision.transform.localScale = new Vector3(3, 3, 0);
+
+            }
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.tag == "EnemyProjectile") {
+            //canParry = false;
+        }
+    }
+
+
+    // Use this for initialization
+    void Awake () {
         releasePoint = transform.Find("ReleasePoint");
         if (releasePoint == null) {
             Debug.LogError("No releasePoint found... !?");
@@ -30,10 +58,15 @@ public class ThrowBall : MonoBehaviour {
 
         anim = GetComponent<Animator>();
         projectile.GetComponent<TrailRenderer>().enabled = false;
+        camEffects = Camera.main.GetComponent<CameraEffects>();
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Time.timeScale < 1) {
+            Time.timeScale = ((float)Time.timeScale + (1.0f / slowdownLength) * Time.unscaledDeltaTime);
+        }
 
         if (throwRate == 0) {
             if (Input.GetButtonDown ("Fire1") && (Input.GetAxis("Horizontal") < 0)) {
@@ -57,6 +90,10 @@ public class ThrowBall : MonoBehaviour {
             anim.SetBool("Throw", false);
             justThrown = false;
         }
+
+        //if (Input.GetButtonDown("Fire2")) {
+        //    canParry = true;
+        //}
 
         if (Input.GetButton("Fire2") && chargeTimer < maxCharge) {
             anim.SetBool("WindUp", true);
@@ -82,6 +119,7 @@ public class ThrowBall : MonoBehaviour {
         } else if (Input.GetButtonUp("Fire2") && chargeTimer < (maxCharge - 0.1f)) {
             chargeTimer = 0.0f;
             anim.SetBool("WindUp", false);
+            projectile.GetComponent<TrailRenderer>().enabled = false;
         }
 
     }

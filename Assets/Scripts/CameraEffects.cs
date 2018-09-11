@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraEffects : MonoBehaviour {
 
-    //public Transform target;
+    public Transform target;
 
     // shake effect taken from a post by poemdexter on the somethingawful.com forums
     float shake;
@@ -13,6 +13,10 @@ public class CameraEffects : MonoBehaviour {
 
     public void Shake(float shakeAmount) {
         shake = shakeAmount;
+    }
+
+    public void Zoom() {
+        StartCoroutine(ZoomIn());
     }
 
     void Update() {
@@ -27,8 +31,17 @@ public class CameraEffects : MonoBehaviour {
         //float currentRotationAngle = transform.eulerAngles.y;
         //var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
 
-       // transform.position = target.position;
-       // transform.position -= currentRotation * Vector3.forward * 5f;
+        //transform.position = target.position;
+        //transform.position -= currentRotation * Vector3.forward * 5f;
         //transform.LookAt(target.transform);
+    }
+
+    IEnumerator ZoomIn() {
+        float originalCamSize = Camera.main.orthographicSize;
+        Camera.main.orthographicSize = 1;
+        while (Camera.main.orthographicSize < originalCamSize) {
+            yield return new WaitForSeconds(0.01f);
+            Camera.main.orthographicSize += 0.1f;
+        }
     }
 }
