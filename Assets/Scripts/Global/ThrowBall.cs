@@ -14,6 +14,7 @@ public class ThrowBall : MonoBehaviour {
     public float velocity = 5;
     public float slowdownFactor = 0.0f;
     public float slowdownLength = 2f;
+    public float ballLifetime = 5f;
     //private float torque = 0f;
     float mass = 1f;
     int english = 0;
@@ -142,7 +143,7 @@ public class ThrowBall : MonoBehaviour {
         ball.GetComponent<Rigidbody2D>().velocity = (normalizedDirection * velocity);
         //ball.GetComponent<Rigidbody2D>().AddTorque(torque, ForceMode2D.Impulse);
         ball.GetComponent<BallScript>().english = english;
-        Destroy(ball, 10f);
+        Destroy(ball, ballLifetime);
         
     }
 

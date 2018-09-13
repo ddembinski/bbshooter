@@ -2,32 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedRoboScript : MonoBehaviour {
+public class greenRoboScript : MonoBehaviour {
+
     Animator anim;
 
     public float timeOut = 3;
     public bool active;
     public int hitPoints = 2;
     public bool wasHit = false;
-    public bool needsReset = true;
-    private int throwTimer = 90;
-    private int throwCooldown = 240;
-    private bool canThrow = true;
-    private bool seesTarget = false;
-    public float velocity = 2;
-    public GameObject player;
-    //public CameraEffects camEffects;
-    private CameraEffects camEffects;
-    public GameObject projectile;
-    //Transform releasePoint;
+    public bool seesTarget = false;
+    public bool canMove = true;
+    public float walkSpeed;
+    public float regenLength = 10;
+    private Vector2 originalPosition;
+    private GameObject player;
+    //private CameraEffects camEffects;
 
     public void OnCollisionEnter2D(Collision2D collision) {
-        //if (collision.gameObject.tag == "EnemyProjectile") {
-        //    Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
-        //}
         if (collision.gameObject.tag == "LiveBall") {
-            collision.gameObject.tag = "DeadBall";
-            collision.gameObject.layer = 8;
+            //collision.gameObject.tag = "DeadBall";
+            //collision.gameObject.layer = 8;
             hitPoints--;
             gameObject.layer = 8;
             active = false;
@@ -36,16 +30,18 @@ public class RedRoboScript : MonoBehaviour {
                 gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
-                Destroy(collision.gameObject);
+                //camEffects.Shake(0.1f);
+                Destroy(collision.gameObject, 0.02f);
                 anim.SetBool("Destroy", true);
                 Destroy(gameObject, 0.5f);
 
-            }
+            } 
+            
             if (hitPoints >= 1) {
                 anim.SetBool("isHit", true);
                 wasHit = true;
-                canThrow = false;
-                StartCoroutine(RegenHealth(5));
+                canMove = false;
+                StartCoroutine(RegenHealth(regenLength));
             } else {
                 anim.SetBool("Destroy", true);
                 Destroy(collision.gameObject, 0.25f);
@@ -53,9 +49,7 @@ public class RedRoboScript : MonoBehaviour {
             }
 
 
-
         }
-
     }
 
     public void OnTriggerStay2D(Collider2D collision) {
@@ -72,55 +66,53 @@ public class RedRoboScript : MonoBehaviour {
         Debug.Log("Immune to damage for " + seconds + " seconds");
         yield return new WaitForSeconds(seconds);
         Debug.Log("Wait over, removing damage immunity");
-        gameObject.layer = 12;
+        gameObject.layer = 0;
         gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
     private IEnumerator RegenHealth(float seconds) {
         yield return new WaitForSeconds(seconds);
-        canThrow = true;
         hitPoints++;
         anim.SetBool("isHit", false);
-    }
-
-    void ThrowBall() {
-        Vector2 throwPointPosition = new Vector2(transform.position.x, transform.position.y);
-        Vector2 targetPosition = new Vector2(player.transform.position.x, player.transform.position.y);
-        Vector2 normalizedDirection = (targetPosition - throwPointPosition).normalized;
-        GameObject ball = (GameObject)Instantiate(projectile, throwPointPosition, Quaternion.identity);
-        ball.GetComponent<Rigidbody2D>().mass = 2;
-        ball.GetComponent<Rigidbody2D>().velocity = (normalizedDirection * velocity);
-        Destroy(ball, 5f);
-        throwTimer = throwCooldown;
+        canMove = true;
     }
 
     // Use this for initialization
-    void Awake() {
+    void Awake () {
         anim = GetComponent<Animator>();
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -1);
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0.5f);
         active = true;
-        needsReset = true;
         player = GameObject.Find("Player");
-        camEffects = Camera.main.GetComponent<CameraEffects>();
-        //releasePoint = transform.Find("RedRoboReleasePoint");
+        //camEffects = Camera.main.GetComponent<CameraEffects>();
         seesTarget = false;
+        originalPosition = new Vector2(transform.position.x, transform.position.y);
+        walkSpeed = 1f;
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update () {
         if (wasHit) {
             Debug.Log("wasHit true, invoking damage immunity");
             StartCoroutine(DamageImmunity(1));
             wasHit = false;
         }
 
-        if ((wasHit != true) && canThrow && seesTarget) {
-            if (throwTimer <= 0) {
-                ThrowBall();
-            } else {
-                throwTimer--;
-            }
+        if (seesTarget && canMove) {
+            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+            Vector2 targetPosition = new Vector2(player.transform.position.x, player.transform.position.y);
+            Vector2 normalizedDirection = (targetPosition - currentPosition).normalized;
+            gameObject.GetComponent<Rigidbody2D>().velocity = (normalizedDirection * walkSpeed);
+
+        } else if (canMove) {
+            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+            Vector2 targetPosition = originalPosition;
+            Vector2 normalizedDirection = (targetPosition - currentPosition).normalized;
+            gameObject.GetComponent<Rigidbody2D>().velocity = (normalizedDirection * walkSpeed);
+
+        } else {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
 
     }
+
 }

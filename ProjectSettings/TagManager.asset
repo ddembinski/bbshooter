@@ -9,6 +9,7 @@ TagManager:
   - IgnoreCollision
   - EnemyProjectile
   - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -49,7 +50,7 @@ TagManager:
   - name: Background
     uniqueID: 156293581
     locked: 0
-  - name: Truck
+  - name: Interactables
     uniqueID: 512666051
     locked: 0
   - name: Player

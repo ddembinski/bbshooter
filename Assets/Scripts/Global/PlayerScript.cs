@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour {
 
 
     public void OnCollisionEnter2D(Collision2D collision) {
-        if ((collision.gameObject.tag != "LiveBall") && (collision.gameObject.tag != "Wall")) {
+        if ((collision.gameObject.tag == "Enemy") || (collision.gameObject.tag == "EnemyProjectile")) {
             //collision.gameObject.tag = "DeadBall";
             //collision.gameObject.layer = 8;
             hitPoints--;
