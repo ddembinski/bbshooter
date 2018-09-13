@@ -10,9 +10,20 @@ public class RMPuzzleTest : MonoBehaviour {
     public GameObject exitDoor;
     public int switchesOn = 0;
     public int doorsOpen = 0;
+    public int SFXplayed = 1;
     //public Text switchCount;
     public Animator anim;
     public bool roomComplete = false;
+
+    public AudioClip noise1;
+    public AudioClip noise2;
+
+    public AudioSource audioS;
+
+
+    public void PlayNoise(AudioClip noise) {
+        audioS.PlayOneShot(noise);
+    }
 
     void Start() {
         GetActiveSwitches();
@@ -73,6 +84,10 @@ public class RMPuzzleTest : MonoBehaviour {
     void Update() {
         if (doorsOpen == doors.Length) {
             roomComplete = true;
+            if (SFXplayed > 0) {
+                PlayNoise(noise2);
+                SFXplayed = 0;
+            }
         }
         if (!roomComplete) {
             GetActiveSwitches();

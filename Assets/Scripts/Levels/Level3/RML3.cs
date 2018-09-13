@@ -10,9 +10,20 @@ public class RML3 : MonoBehaviour {
     public GameObject exitDoor;
     public int switchesOn = 0;
     public int doorsOpen = 0;
+    public int SFXplayed = 1;
     //public Text switchCount;
     public Animator anim;
     public bool roomComplete = false;
+
+    public AudioClip noise1;
+    public AudioClip noise2;
+
+    public AudioSource audioS;
+
+
+    public void PlayNoise(AudioClip noise) {
+        audioS.PlayOneShot(noise);
+    }
 
     void Start() {
         GetActiveSwitches();
@@ -82,6 +93,11 @@ public class RML3 : MonoBehaviour {
             roomComplete = true;
             doorsOpen = 1;
             OpenDoors();
+            if (SFXplayed > 0) {
+                GameObject.Find("Door").GetComponent<DoorSound>().PlayNoise1();
+                PlayNoise(noise2);
+                SFXplayed = 0;
+            }
         }
         if (!roomComplete) {
             GetActiveSwitches();
@@ -91,3 +107,4 @@ public class RML3 : MonoBehaviour {
     }
 
 }
+

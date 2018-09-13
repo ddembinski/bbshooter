@@ -20,6 +20,7 @@ public class Switch : MonoBehaviour {
         if (collision.GetComponent<Collider2D>().name != "ParryCollider" && collision.GetComponent<Collider2D>().name != "Vision") {
             gameObject.GetComponent<SpriteRenderer>().sprite = switchOn.GetComponent<SpriteRenderer>().sprite;
             isOn = true;
+            gameObject.GetComponent<SwitchSound>().PlayNoise();
 
         }
     }

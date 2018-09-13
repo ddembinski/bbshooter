@@ -14,6 +14,17 @@ public class RML1 : MonoBehaviour {
     public Animator anim;
     public bool roomComplete = false;
 
+    public int SFXplayed = 1;
+    public AudioClip noise1;
+    public AudioClip noise2;
+
+    public AudioSource audioS;
+
+
+    public void PlayNoise(AudioClip noise) {
+        audioS.PlayOneShot(noise);
+    }
+
     void Start() {
         GetActiveSwitches();
         roomComplete = false;
@@ -73,6 +84,10 @@ public class RML1 : MonoBehaviour {
     void Update() {
         if (doorsOpen == doors.Length) {
             roomComplete = true;
+            if (SFXplayed > 0) {
+                PlayNoise(noise2);
+                SFXplayed = 0;
+            }
         }
         if (!roomComplete) {
             GetActiveSwitches();
