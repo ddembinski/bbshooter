@@ -65,9 +65,9 @@ public class ThrowBall : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Time.timeScale < 1) {
+        /*if (Time.timeScale < 1) {
             Time.timeScale = ((float)Time.timeScale + (1.0f / slowdownLength) * Time.unscaledDeltaTime);
-        }
+        }*/
 
         if (throwRate == 0) {
             if (Input.GetButtonDown ("Fire1") && (Input.GetAxis("Horizontal") < 0)) {

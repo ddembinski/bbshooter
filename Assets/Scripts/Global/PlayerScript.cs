@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour {
     public int activeSceneIndex;
     public int hitPoints = 2;
     public bool wasHit = false;
+    public bool gamePaused = false;
 
 
     public void OnCollisionEnter2D(Collision2D collision) {
@@ -39,6 +40,17 @@ public class PlayerScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if (gamePaused) {
+            Time.timeScale = 0;
+        }
+
+        if (gamePaused && Input.GetKeyDown("p")) {
+            gamePaused = false;
+            Time.timeScale = 1;
+        } else if (!gamePaused && Input.GetKeyDown("p")) {
+            gamePaused = true;
+        }
 
         if (hitPoints <= 0) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -77,8 +89,6 @@ public class PlayerScript : MonoBehaviour {
             StartCoroutine(DamageImmunity(3));
             wasHit = false;
         }
-
-
 
     }
 
