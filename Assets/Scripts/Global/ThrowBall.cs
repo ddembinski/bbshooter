@@ -69,59 +69,63 @@ public class ThrowBall : MonoBehaviour {
             Time.timeScale = ((float)Time.timeScale + (1.0f / slowdownLength) * Time.unscaledDeltaTime);
         }*/
 
-        if (throwRate == 0) {
-            if (Input.GetButtonDown ("Fire1") && (Input.GetAxis("Horizontal") < 0)) {
-                //torque = -100f;
-                english = -1;
-                ThrowIt();
-            } else if (Input.GetButtonDown ("Fire1") && (Input.GetAxis("Horizontal") > 0)) {
-                //torque = 100f;
-                english = 1;
-                ThrowIt();
-            } else if (Input.GetButtonDown("Fire1")) {
-                //torque = 0f;
-                english = 0;
-                ThrowIt();
+        if (!PauseMenu.isPaused) {
+            if (throwRate == 0) {
+                if (Input.GetButtonDown("Fire1") && (Input.GetAxis("Horizontal") < 0)) {
+                    //torque = -100f;
+                    english = -1;
+                    ThrowIt();
+                } else if (Input.GetButtonDown("Fire1") && (Input.GetAxis("Horizontal") > 0)) {
+                    //torque = 100f;
+                    english = 1;
+                    ThrowIt();
+                } else if (Input.GetButtonDown("Fire1")) {
+                    //torque = 0f;
+                    english = 0;
+                    ThrowIt();
+                }
             }
-        } 
-        if (Input.GetButtonUp("Fire1") && anim.GetBool("Throw")) {
-            anim.SetBool("Throw", false);
+            if (Input.GetButtonUp("Fire1") && anim.GetBool("Throw")) {
+                anim.SetBool("Throw", false);
+            }
+            if (anim.GetBool("Throw") && justThrown) {
+                anim.SetBool("Throw", false);
+                justThrown = false;
+            }
+
+            //if (Input.GetButtonDown("Fire2")) {
+            //    canParry = true;
+            //}
+
+            if (Input.GetButton("Fire2") && chargeTimer < maxCharge) {
+                anim.SetBool("WindUp", true);
+                chargeTimer += Time.deltaTime;
+                projectile.GetComponent<TrailRenderer>().enabled = true;
+            } else if (Input.GetButton("Fire2") && chargeTimer >= maxCharge) {
+                chargeTimer = 1.5f;
+            }
+
+            if (Input.GetButtonUp("Fire2") && chargeTimer > (maxCharge - 0.1f)) {
+
+                float prevVelocity = velocity;
+                float prevMass = mass;
+                mass *= 10;
+                velocity *= 2;
+                ThrowIt();
+                velocity = prevVelocity;
+                mass = prevMass;
+                chargeTimer = 0.0f;
+                justThrown = true;
+                projectile.GetComponent<TrailRenderer>().enabled = false;
+
+            } else if (Input.GetButtonUp("Fire2") && chargeTimer < (maxCharge - 0.1f)) {
+                chargeTimer = 0.0f;
+                anim.SetBool("WindUp", false);
+                projectile.GetComponent<TrailRenderer>().enabled = false;
+            }
         }
-        if (anim.GetBool("Throw") && justThrown) {
-            anim.SetBool("Throw", false);
-            justThrown = false;
-        }
 
-        //if (Input.GetButtonDown("Fire2")) {
-        //    canParry = true;
-        //}
-
-        if (Input.GetButton("Fire2") && chargeTimer < maxCharge) {
-            anim.SetBool("WindUp", true);
-            chargeTimer += Time.deltaTime;
-            projectile.GetComponent<TrailRenderer>().enabled = true;
-        } else if (Input.GetButton("Fire2") && chargeTimer >= maxCharge) {
-            chargeTimer = 1.5f;
-        } 
-
-        if (Input.GetButtonUp("Fire2") && chargeTimer > (maxCharge - 0.1f)) {
-            
-            float prevVelocity = velocity;
-            float prevMass = mass;
-            mass *= 10;
-            velocity *= 2;
-            ThrowIt();
-            velocity = prevVelocity;
-            mass = prevMass;
-            chargeTimer = 0.0f;
-            justThrown = true;
-            projectile.GetComponent<TrailRenderer>().enabled = false;
-
-        } else if (Input.GetButtonUp("Fire2") && chargeTimer < (maxCharge - 0.1f)) {
-            chargeTimer = 0.0f;
-            anim.SetBool("WindUp", false);
-            projectile.GetComponent<TrailRenderer>().enabled = false;
-        }
+        
 
     }
 

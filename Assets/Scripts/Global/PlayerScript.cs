@@ -78,12 +78,12 @@ public class PlayerScript : MonoBehaviour {
 
         //rigidbody2D.MovePosition(movement);
 
-        if (Input.GetKey(KeyCode.Escape)) {
+        /*if (Input.GetKey(KeyCode.Escape)) {
             activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
             Debug.Log(activeSceneIndex);
             SceneManager.LoadScene("MainMenu");
             //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(0));
-        }
+        }*/
 
         if (wasHit) {
             StartCoroutine(DamageImmunity(3));
