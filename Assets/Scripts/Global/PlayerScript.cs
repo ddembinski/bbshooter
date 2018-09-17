@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
+    Animator anim;
+
     public float moveSpeed = 0.0000001f;
     public bool canMove = true;
     public bool reset = false;
@@ -36,6 +38,7 @@ public class PlayerScript : MonoBehaviour {
         wasHit = false;
         gameObject.layer = 0;
         gameObject.GetComponent<Collider2D>().enabled = true;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,18 +62,30 @@ public class PlayerScript : MonoBehaviour {
             Vector2 movement = Vector2.zero;
 
             if (Input.GetAxisRaw("Horizontal") < 0) {
+                anim.SetFloat("MoveVertical", 2.0f);
+                anim.SetFloat("MoveHorizontal", 0.5f);
                 //transform.Translate((truckSpeed * Time.deltaTime) * -1, 0, 0);
                 movement.x = (transform.right * Time.deltaTime * -moveSpeed).x;
             } else if (Input.GetAxisRaw("Horizontal") > 0) {
+                anim.SetFloat("MoveVertical", 2.0f);
+                anim.SetFloat("MoveHorizontal", 3.5f);
                 //transform.Translate(truckSpeed * Time.deltaTime, 0, 0);
                 movement.x = (transform.right * Time.deltaTime * moveSpeed).x;
+            } else if (Input.GetAxisRaw("Horizontal") == 0) {
+                anim.SetFloat("MoveHorizontal", 2.0f);
             }
-            if (Input.GetAxisRaw("Vertical") < 0) {
+                if (Input.GetAxisRaw("Vertical") < 0) {
+                anim.SetFloat("MoveHorizontal", 2.0f);
+                anim.SetFloat("MoveVertical", 0.5f);
                 //transform.Translate(0, (truckSpeed * Time.deltaTime) * -1, 0);
                 movement.y = (transform.up * Time.deltaTime * -moveSpeed).y;
             } else if (Input.GetAxisRaw("Vertical") > 0) {
+                anim.SetFloat("MoveHorizontal", 2.0f);
+                anim.SetFloat("MoveVertical", 3.5f);
                 //transform.Translate(0, (truckSpeed * Time.deltaTime) * 1, 0);
                 movement.y = (transform.up * Time.deltaTime * moveSpeed).y;
+            } else if (Input.GetAxisRaw("Vertical") == 0) {
+                anim.SetFloat("MoveVertical", 2.0f);
             }
             movement = movement + (Vector2)(transform.position);
             gameObject.GetComponent<Rigidbody2D>().MovePosition(movement);
