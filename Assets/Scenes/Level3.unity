@@ -458,6 +458,19 @@ Prefab:
       propertyPath: m_Name
       value: switch
       objectReference: {fileID: 0}
+    - target: {fileID: 4191851615717834, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191851615717834, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58095734054269858, guid: 315ef7a1b292e6943b7727930b668ff0,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
   m_IsPrefabAsset: 0
@@ -23907,6 +23920,19 @@ Prefab:
       propertyPath: m_Name
       value: switch2
       objectReference: {fileID: 0}
+    - target: {fileID: 4191851615717834, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191851615717834, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58095734054269858, guid: 315ef7a1b292e6943b7727930b668ff0,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
   m_IsPrefabAsset: 0
@@ -24120,7 +24146,7 @@ Transform:
   m_GameObject: {fileID: 1016011501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.6, y: 0.68, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 632480405}
   - {fileID: 2112009410}
@@ -24139,18 +24165,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01869893, y: -0.17}
+  m_Offset: {x: 0.015122414, y: -0.27858436}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.26, y: 0.59}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.26, y: 0.59}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.28188324, y: 0.3103646}
   m_EdgeRadius: 0
 --- !u!50 &1016011504
 Rigidbody2D:
@@ -24265,7 +24291,7 @@ SpriteRenderer:
   m_SortingLayerID: 996288415
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f5c64fc6469c4d74789b3b008c4219a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a96644f40a656f4da6faa5ec3905185, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -24577,6 +24603,14 @@ Prefab:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 4928787337394592, guid: 756f7949d5f5e7d4799a7e8613964cfb, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928787337394592, guid: 756f7949d5f5e7d4799a7e8613964cfb, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756f7949d5f5e7d4799a7e8613964cfb, type: 2}
   m_IsPrefabAsset: 0
@@ -24720,6 +24754,14 @@ Prefab:
     - target: {fileID: 1748346176372486, guid: 1159570006b51284898d6465c3ea8119, type: 2}
       propertyPath: m_Name
       value: spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498191853692130, guid: 1159570006b51284898d6465c3ea8119, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498191853692130, guid: 1159570006b51284898d6465c3ea8119, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114524515381455314, guid: 1159570006b51284898d6465c3ea8119, type: 2}
