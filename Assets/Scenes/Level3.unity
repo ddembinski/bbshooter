@@ -645,7 +645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632480405}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ReleasePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24131,7 +24131,7 @@ GameObject:
   - component: {fileID: 1016011505}
   - component: {fileID: 1016011504}
   - component: {fileID: 1016011503}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -24677,7 +24677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112009410}
   - component: {fileID: 2112009411}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ParryCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -718,7 +718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1166182397}
   - component: {fileID: 1166182398}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ParryCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1340881365}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ReleasePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24674,15 +24674,15 @@ GameObject:
   - component: {fileID: 2077182281}
   - component: {fileID: 2077182280}
   - component: {fileID: 2077182279}
-  - component: {fileID: 2077182278}
-  m_Layer: 0
+  - component: {fileID: 2077182277}
+  m_Layer: 13
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &2077182278
+--- !u!61 &2077182277
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24694,7 +24694,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015196621, y: -0.2822789}
+  m_Offset: {x: 0.017393112, y: -0.28560597}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -24705,7 +24705,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2847389, y: 0.31439745}
+  m_Size: {x: 0.2855444, y: 0.31134284}
   m_EdgeRadius: 0
 --- !u!50 &2077182279
 Rigidbody2D:

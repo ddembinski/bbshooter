@@ -73,19 +73,26 @@ public class ThrowBall : MonoBehaviour {
             if (throwRate == 0) {
                 if (Input.GetButtonDown("Fire1") && (Input.GetAxis("Horizontal") < 0)) {
                     //torque = -100f;
+                    justThrown = false;
                     english = -1;
-                    ThrowIt();
+                    //ThrowIt();
+                    anim.SetBool("Throw", true);
                 } else if (Input.GetButtonDown("Fire1") && (Input.GetAxis("Horizontal") > 0)) {
                     //torque = 100f;
+                    justThrown = false;
                     english = 1;
-                    ThrowIt();
+                    //ThrowIt();
+                    anim.SetBool("Throw", true);
                 } else if (Input.GetButtonDown("Fire1")) {
-                    //torque = 0f;
-                    english = 0;
-                    ThrowIt();
+                    justThrown = false;
+                    //ThrowIt();
+                    anim.SetBool("Throw", true);
                 }
             }
             if (Input.GetButtonUp("Fire1") && anim.GetBool("Throw")) {
+                anim.SetBool("Throw", false);
+            }
+            if (justThrown) {
                 anim.SetBool("Throw", false);
             }
             if (anim.GetBool("Throw") && justThrown) {
@@ -148,6 +155,7 @@ public class ThrowBall : MonoBehaviour {
         //ball.GetComponent<Rigidbody2D>().AddTorque(torque, ForceMode2D.Impulse);
         ball.GetComponent<BallScript>().english = english;
         Destroy(ball, ballLifetime);
+        justThrown = true;
         
     }
 

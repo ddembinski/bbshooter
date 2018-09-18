@@ -29,6 +29,10 @@ public class PlayerScript : MonoBehaviour {
             StartCoroutine(RegenHealth(10));
         }
 
+        Debug.Log("Something's collided with us. It's " + collision.gameObject.name);
+        Debug.Log("collision's layer: " + collision.gameObject.layer);
+        Debug.Log("Our layer: " + gameObject.layer);
+
     }
 
     // Use this for initialization
@@ -36,7 +40,7 @@ public class PlayerScript : MonoBehaviour {
         reset = false;
         hitPoints = 2;
         wasHit = false;
-        gameObject.layer = 0;
+        //gameObject.layer = 0;
         gameObject.GetComponent<Collider2D>().enabled = true;
         anim = GetComponent<Animator>();
     }
