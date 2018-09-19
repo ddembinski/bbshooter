@@ -22,6 +22,9 @@ public class ThrowBall : MonoBehaviour {
     float maxCharge = 1.1f;
     private bool justThrown = false;
     public bool canParry = false;
+    Vector2 mousePosition;
+    Vector2 throwPointPosition;
+
 
     //float timeToThrow = 0;
     Transform releasePoint;
@@ -76,16 +79,19 @@ public class ThrowBall : MonoBehaviour {
                     justThrown = false;
                     english = -1;
                     //ThrowIt();
+                    mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                     anim.SetBool("Throw", true);
                 } else if (Input.GetButtonDown("Fire1") && (Input.GetAxis("Horizontal") > 0)) {
                     //torque = 100f;
                     justThrown = false;
                     english = 1;
                     //ThrowIt();
+                    mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                     anim.SetBool("Throw", true);
                 } else if (Input.GetButtonDown("Fire1")) {
                     justThrown = false;
                     //ThrowIt();
+                    mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                     anim.SetBool("Throw", true);
                 }
             }
@@ -118,6 +124,7 @@ public class ThrowBall : MonoBehaviour {
                 float prevMass = mass;
                 mass *= 10;
                 velocity *= 2;
+                mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                 ThrowIt();
                 velocity = prevVelocity;
                 mass = prevMass;
@@ -139,10 +146,9 @@ public class ThrowBall : MonoBehaviour {
     void ThrowIt() {
         anim.SetBool("WindUp", false);
         anim.SetBool("Throw", true);
-        Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-        Vector2 throwPointPosition = new Vector2(releasePoint.position.x, releasePoint.position.y);
         //RaycastHit2D hit = Physics2D.Raycast(throwPointPosition, mousePosition - throwPointPosition, 1000, whatToHit);
         //Debug.DrawLine(throwPointPosition, (mousePosition-throwPointPosition)*100, Color.cyan);
+        throwPointPosition = new Vector2(releasePoint.position.x, releasePoint.position.y);
         Vector2 normalizedDirection = (mousePosition - throwPointPosition).normalized;
         //if (hit.collider != null) {
             // Debug.DrawLine(throwPointPosition, hit.point, Color.black);

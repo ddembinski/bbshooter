@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class greenRoboScript : MonoBehaviour {
+public class RoboGeorgeScript : MonoBehaviour {
 
     Animator anim;
 
@@ -32,21 +32,22 @@ public class greenRoboScript : MonoBehaviour {
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
                 //camEffects.Shake(0.1f);
-                Destroy(collision.gameObject, 0.02f);
+                Destroy(collision.gameObject, 0.2f);
                 anim.SetBool("Destroy", true);
                 Destroy(gameObject, 0.5f);
 
-            } 
-            
+            }
+
             if (hitPoints >= 1) {
-                anim.SetBool("isHit", true);
+                anim.SetBool("IsHit", true);
                 wasHit = true;
                 canMove = false;
+                Destroy(collision.gameObject, 0.25f);
                 StartCoroutine(RegenHealth(regenLength));
             } else {
                 anim.SetBool("Destroy", true);
                 Destroy(collision.gameObject, 0.25f);
-                Destroy(gameObject, 0.5f);
+                Destroy(gameObject, 0.9f);
             }
 
 
@@ -90,12 +91,12 @@ public class greenRoboScript : MonoBehaviour {
     private IEnumerator RegenHealth(float seconds) {
         yield return new WaitForSeconds(seconds);
         hitPoints++;
-        anim.SetBool("isHit", false);
+        anim.SetBool("IsHit", false);
         canMove = true;
     }
 
     // Use this for initialization
-    void Awake () {
+    void Awake() {
         anim = GetComponent<Animator>();
         //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0.5f);
         active = true;
@@ -107,7 +108,7 @@ public class greenRoboScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void FixedUpdate () {
+    void FixedUpdate() {
         if (wasHit) {
             Debug.Log("wasHit true, invoking damage immunity");
             StartCoroutine(DamageImmunity(1));

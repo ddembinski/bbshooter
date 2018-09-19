@@ -11,7 +11,7 @@ public class L3ESpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        whereToSpawn = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+        whereToSpawn = new Vector2(gameObject.transform.position.x +0.1f, gameObject.transform.position.y -0.1f);
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 	}
 

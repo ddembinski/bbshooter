@@ -29,9 +29,9 @@ public class PlayerScript : MonoBehaviour {
             StartCoroutine(RegenHealth(10));
         }
 
-        Debug.Log("Something's collided with us. It's " + collision.gameObject.name);
+        /*Debug.Log("Something's collided with us. It's " + collision.gameObject.name);
         Debug.Log("collision's layer: " + collision.gameObject.layer);
-        Debug.Log("Our layer: " + gameObject.layer);
+        Debug.Log("Our layer: " + gameObject.layer);*/
 
     }
 
