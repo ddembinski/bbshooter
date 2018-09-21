@@ -17,4 +17,9 @@ public class MainMenu : MonoBehaviour {
         Application.Quit();
     }
 
+    void Awake() {
+        Time.timeScale = 1f;
+        PauseMenu.isPaused = false;
+    }
+
 }

@@ -43,6 +43,7 @@ public class PlayerScript : MonoBehaviour {
         //gameObject.layer = 0;
         gameObject.GetComponent<Collider2D>().enabled = true;
         anim = GetComponent<Animator>();
+        gamePaused = false;
     }
 
     // Update is called once per frame
