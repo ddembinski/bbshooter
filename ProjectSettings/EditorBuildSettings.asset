@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PuzzleTest.unity
     guid: 1a405d84bd038514ea9a149dc369a882
+  - enabled: 1
+    path: Assets/Scenes/Arena.unity
+    guid: 6e885eb0621e81245b5a243994199ec5
   m_configObjects: {}

@@ -35,7 +35,7 @@ public class RML1 : MonoBehaviour {
         for (int i = 0; i < switches.Length; i++) {
             if (switches[i].GetComponent<Switch>().isOn == true) {
                 switchesOn++;
-            } 
+            }
         }
     }
 

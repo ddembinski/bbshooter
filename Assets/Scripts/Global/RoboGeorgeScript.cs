@@ -14,7 +14,7 @@ public class RoboGeorgeScript : MonoBehaviour {
     public bool canMove = true;
     public float walkSpeed;
     public float regenLength = 10;
-    private Vector2 originalPosition;
+    public Vector2 originalPosition;
     public bool atOrigin = true;
     private GameObject player;
     //private CameraEffects camEffects;
@@ -32,7 +32,7 @@ public class RoboGeorgeScript : MonoBehaviour {
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
                 //camEffects.Shake(0.1f);
-                Destroy(collision.gameObject, 0.2f);
+                Destroy(collision.gameObject, 0.5f);
                 anim.SetBool("Destroy", true);
                 Destroy(gameObject, 0.5f);
 
@@ -56,7 +56,7 @@ public class RoboGeorgeScript : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "StopPoint") {
-            Debug.Log("Collided with StopPoint. Collider name: " + gameObject.name.ToString());
+            //Debug.Log("Collided with StopPoint. Collider name: " + gameObject.name.ToString());
             if (gameObject.tag != "Vision") {
                 atOrigin = true;
             }
@@ -81,9 +81,9 @@ public class RoboGeorgeScript : MonoBehaviour {
     }
 
     private IEnumerator DamageImmunity(float seconds) {
-        Debug.Log("Immune to damage for " + seconds + " seconds");
+        //Debug.Log("Immune to damage for " + seconds + " seconds");
         yield return new WaitForSeconds(seconds);
-        Debug.Log("Wait over, removing damage immunity");
+        //Debug.Log("Wait over, removing damage immunity");
         gameObject.layer = 0;
         gameObject.GetComponent<Collider2D>().enabled = true;
     }
@@ -110,7 +110,7 @@ public class RoboGeorgeScript : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() {
         if (wasHit) {
-            Debug.Log("wasHit true, invoking damage immunity");
+            //Debug.Log("wasHit true, invoking damage immunity");
             StartCoroutine(DamageImmunity(1));
             wasHit = false;
         }

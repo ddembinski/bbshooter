@@ -122,7 +122,7 @@ public class ThrowBall : MonoBehaviour {
 
                 float prevVelocity = velocity;
                 float prevMass = mass;
-                mass *= 10;
+                mass *= 2000;
                 velocity *= 2;
                 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                 ThrowIt();
