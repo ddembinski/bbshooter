@@ -309,11 +309,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4292757311016562, guid: 3dc5eac026f7e3c439b99a70713b40a5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.78
+      value: -2.88
       objectReference: {fileID: 0}
     - target: {fileID: 4292757311016562, guid: 3dc5eac026f7e3c439b99a70713b40a5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.16
+      value: 3.96
       objectReference: {fileID: 0}
     - target: {fileID: 4292757311016562, guid: 3dc5eac026f7e3c439b99a70713b40a5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -24271,7 +24271,7 @@ MonoBehaviour:
   canMove: 1
   reset: 0
   activeSceneIndex: 0
-  hitPoints: 2
+  hitPoints: 1
   wasHit: 0
   gamePaused: 0
 --- !u!114 &1016011506
@@ -24348,7 +24348,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 996288415
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 8a96644f40a656f4da6faa5ec3905185, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

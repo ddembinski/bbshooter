@@ -256,6 +256,7 @@ MonoBehaviour:
   - {fileID: 1930303829}
   exitDoor: {fileID: 1930303829}
   spawner: {fileID: 1176220215}
+  maxEnemies: 1
   switchesOn: 0
   doorsOpen: 0
   SFXplayed: 1
@@ -617,6 +618,10 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508225085860822, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
+      propertyPath: m_TagString
+      value: Switch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
@@ -24402,11 +24407,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4191851615717834, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.288834
+      value: -2.95
       objectReference: {fileID: 0}
     - target: {fileID: 4191851615717834, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.8760517
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 4191851615717834, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -24448,6 +24453,10 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508225085860822, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}
+      propertyPath: m_TagString
+      value: Switch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315ef7a1b292e6943b7727930b668ff0, type: 2}

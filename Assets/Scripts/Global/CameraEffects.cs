@@ -6,10 +6,9 @@ public class CameraEffects : MonoBehaviour {
 
     public Transform target;
 
-    // shake effect taken from a post by poemdexter on the somethingawful.com forums
     float shake;
     public float shakeAmount = 0.7f;
-    public float decreaseFactor = 1.0f;
+    public float decreaseFactor = 2.0f;
 
     public void Shake(float shakeAmount) {
         shake = shakeAmount;
@@ -28,20 +27,27 @@ public class CameraEffects : MonoBehaviour {
             shake = 0;
         }
 
-        //float currentRotationAngle = transform.eulerAngles.y;
-        //var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
-
-        //transform.position = target.position;
-        //transform.position -= currentRotation * Vector3.forward * 5f;
-        //transform.LookAt(target.transform);
+        
     }
 
     IEnumerator ZoomIn() {
+        float currentRotationAngle = transform.eulerAngles.y;
+        var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+
+        transform.position = target.position;
+        transform.position -= currentRotation * Vector3.forward * 5f;
+        transform.LookAt(target.transform);
+
         float originalCamSize = Camera.main.orthographicSize;
-        Camera.main.orthographicSize = 1;
-        while (Camera.main.orthographicSize < originalCamSize) {
-            yield return new WaitForSeconds(0.01f);
-            Camera.main.orthographicSize += 0.1f;
-        }
+        //Camera.main.orthographicSize = 1;
+        /*while (Camera.main.orthographicSize > 1.1f) {
+            yield return new WaitForSeconds(0.15f);
+            
+            transform.position = target.position;
+            transform.position -= currentRotation * Vector3.forward * 5f;
+        }*/
+        Camera.main.orthographicSize = 2.5f;
+        yield return new WaitForSeconds(0.1f);
+        
     }
 }

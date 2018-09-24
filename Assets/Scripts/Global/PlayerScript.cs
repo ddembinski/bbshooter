@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour {
     public bool canMove = true;
     public bool reset = false;
     public int activeSceneIndex;
-    public int hitPoints = 2;
+    public int hitPoints = 1;
     public bool wasHit = false;
     public bool gamePaused = false;
 
@@ -38,7 +38,6 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start() {
         reset = false;
-        hitPoints = 2;
         wasHit = false;
         //gameObject.layer = 0;
         gameObject.GetComponent<Collider2D>().enabled = true;
@@ -61,7 +60,8 @@ public class PlayerScript : MonoBehaviour {
         }
 
         if (hitPoints <= 0) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            StartCoroutine(WaitToDie(2));
+            Camera.main.GetComponent<CameraEffects>().Zoom();
         }
         if (canMove) {
             Vector2 movement = Vector2.zero;
@@ -110,6 +110,11 @@ public class PlayerScript : MonoBehaviour {
             wasHit = false;
         }
 
+    }
+
+    private IEnumerator WaitToDie(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private IEnumerator DamageImmunity(float seconds) {

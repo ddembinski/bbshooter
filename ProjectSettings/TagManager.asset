@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - StopPoint
   - Vision
+  - Switch
   layers:
   - Default
   - TransparentFX
@@ -55,12 +56,12 @@ TagManager:
   - name: Interactables
     uniqueID: 512666051
     locked: 0
-  - name: Player
-    uniqueID: 996288415
-    locked: 0
   - name: Enemies
     uniqueID: 1936914611
     locked: 0
   - name: Projectiles
     uniqueID: 520182383
+    locked: 0
+  - name: Player
+    uniqueID: 996288415
     locked: 0

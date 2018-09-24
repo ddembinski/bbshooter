@@ -17,6 +17,8 @@ public class RoboGeorgeScript : MonoBehaviour {
     public Vector2 originalPosition;
     public bool atOrigin = true;
     private GameObject player;
+    private GameObject switchActivated;
+    public bool isActivatingSwitch = false;
     //private CameraEffects camEffects;
 
     public void OnCollisionEnter2D(Collision2D collision) {
@@ -34,6 +36,9 @@ public class RoboGeorgeScript : MonoBehaviour {
                 //camEffects.Shake(0.1f);
                 Destroy(collision.gameObject, 0.5f);
                 anim.SetBool("Destroy", true);
+                if (isActivatingSwitch) {
+                    switchActivated.GetComponent<Switch>().isOn = false;
+                }
                 Destroy(gameObject, 0.5f);
 
             }
@@ -47,6 +52,9 @@ public class RoboGeorgeScript : MonoBehaviour {
             } else {
                 anim.SetBool("Destroy", true);
                 Destroy(collision.gameObject, 0.25f);
+                if (isActivatingSwitch) {
+                    switchActivated.GetComponent<Switch>().isOn = false;
+                }
                 Destroy(gameObject, 0.9f);
             }
 
@@ -67,6 +75,10 @@ public class RoboGeorgeScript : MonoBehaviour {
         if (collision.gameObject.tag == "Player") {
             seesTarget = true;
         }
+        if (collision.gameObject.tag == "Switch") {
+            switchActivated = collision.gameObject;
+            isActivatingSwitch = true;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision) {
@@ -77,6 +89,9 @@ public class RoboGeorgeScript : MonoBehaviour {
             if (gameObject.tag != "Vision") {
                 atOrigin = false;
             }
+        }
+        if (collision.gameObject.tag == "Switch") {
+            isActivatingSwitch = false;
         }
     }
 
