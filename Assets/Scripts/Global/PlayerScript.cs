@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour {
 
     Animator anim;
+    public Animator Fader;
 
     public float moveSpeed = 0.0000001f;
     public bool canMove = true;
@@ -37,6 +38,8 @@ public class PlayerScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        Time.timeScale = 1f;
+        canMove = true;
         reset = false;
         wasHit = false;
         //gameObject.layer = 0;
@@ -60,8 +63,12 @@ public class PlayerScript : MonoBehaviour {
         }
 
         if (hitPoints <= 0) {
-            StartCoroutine(WaitToDie(2));
+            canMove = false;
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(WaitToDie(1));
             Camera.main.GetComponent<CameraEffects>().Zoom();
+            Fader.SetTrigger("FadeOut");
+            Time.timeScale = 0.5f;
         }
         if (canMove) {
             Vector2 movement = Vector2.zero;
@@ -125,9 +132,9 @@ public class PlayerScript : MonoBehaviour {
     }
 
     private IEnumerator RegenHealth(float seconds) {
-        Debug.Log("Regenerating hitPoints in " + seconds + " seconds");
+        //Debug.Log("Regenerating hitPoints in " + seconds + " seconds");
         yield return new WaitForSeconds(seconds);
-        Debug.Log("hitPoints regenerated");
+        //Debug.Log("hitPoints regenerated");
         hitPoints++;
     }
 

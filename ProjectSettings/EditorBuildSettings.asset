@@ -33,8 +33,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Level3.unity
     guid: c72a0fbfaa0324b449ca9f99b4a8c4a2
   - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: d2afe4eaf0cf46a4db793b83fa057110
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: 480f7ac06df0a4f459ec6cad8d022112
+  - enabled: 0
     path: Assets/Scenes/PuzzleTest.unity
     guid: 1a405d84bd038514ea9a149dc369a882
+  - enabled: 1
+    path: Assets/Scenes/Level6.unity
+    guid: 46c92b6a1a1c3114b9dfe07199522ded
   - enabled: 1
     path: Assets/Scenes/Arena.unity
     guid: 6e885eb0621e81245b5a243994199ec5

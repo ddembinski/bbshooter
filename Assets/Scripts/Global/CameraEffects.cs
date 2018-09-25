@@ -34,9 +34,7 @@ public class CameraEffects : MonoBehaviour {
         float currentRotationAngle = transform.eulerAngles.y;
         var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
 
-        transform.position = target.position;
-        transform.position -= currentRotation * Vector3.forward * 5f;
-        transform.LookAt(target.transform);
+
 
         float originalCamSize = Camera.main.orthographicSize;
         //Camera.main.orthographicSize = 1;
@@ -45,8 +43,12 @@ public class CameraEffects : MonoBehaviour {
             
             transform.position = target.position;
             transform.position -= currentRotation * Vector3.forward * 5f;
+            transform.LookAt(target.transform);
         }*/
         Camera.main.orthographicSize = 2.5f;
+        transform.position = target.position;
+        transform.position -= currentRotation * Vector3.forward * 5f;
+        transform.LookAt(target.transform);
         yield return new WaitForSeconds(0.1f);
         
     }
