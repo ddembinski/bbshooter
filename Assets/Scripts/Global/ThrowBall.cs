@@ -10,16 +10,16 @@ public class ThrowBall : MonoBehaviour {
     public float Damage = 1;
     public LayerMask whatToHit;
     public GameObject projectile;
-    private CameraEffects camEffects;
+    //private CameraEffects camEffects;
     public float velocity = 5;
     public float slowdownFactor = 0.0f;
     public float slowdownLength = 2f;
     public float ballLifetime = 5f;
     //private float torque = 0f;
     float mass = 1f;
-    int english = 0;
-    float chargeTimer = 0f;
-    float maxCharge = 1.1f;
+    //int english = 0;
+    //float chargeTimer = 0f;
+    //float maxCharge = 1.1f;
     private bool justThrown = false;
     public bool canParry = false;
     Vector2 mousePosition;
@@ -29,7 +29,7 @@ public class ThrowBall : MonoBehaviour {
     //float timeToThrow = 0;
     Transform releasePoint;
 
-    public void OnTriggerStay2D(Collider2D collision) {
+    /*public void OnTriggerStay2D(Collider2D collision) {
         if ((collision.gameObject.tag == "EnemyProjectile")) {
             if (Input.GetButtonDown("Fire2")) {
                 Debug.Log("parrying");
@@ -50,7 +50,7 @@ public class ThrowBall : MonoBehaviour {
         if (collision.gameObject.tag == "EnemyProjectile") {
             //canParry = false;
         }
-    }
+    }*/
 
 
     // Use this for initialization
@@ -62,33 +62,16 @@ public class ThrowBall : MonoBehaviour {
 
         anim = GetComponent<Animator>();
         projectile.GetComponent<TrailRenderer>().enabled = false;
-        camEffects = Camera.main.GetComponent<CameraEffects>();
+        //camEffects = Camera.main.GetComponent<CameraEffects>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        /*if (Time.timeScale < 1) {
-            Time.timeScale = ((float)Time.timeScale + (1.0f / slowdownLength) * Time.unscaledDeltaTime);
-        }*/
 
         if (!PauseMenu.isPaused) {
             if (throwRate == 0) {
-                if (Input.GetButtonDown("Fire1") && (Input.GetAxis("Horizontal") < 0)) {
-                    //torque = -100f;
-                    justThrown = false;
-                    english = -1;
-                    //ThrowIt();
-                    mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-                    anim.SetBool("Throw", true);
-                } else if (Input.GetButtonDown("Fire1") && (Input.GetAxis("Horizontal") > 0)) {
-                    //torque = 100f;
-                    justThrown = false;
-                    english = 1;
-                    //ThrowIt();
-                    mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-                    anim.SetBool("Throw", true);
-                } else if (Input.GetButtonDown("Fire1")) {
+                if (Input.GetButtonDown("Fire1")) {
                     justThrown = false;
                     //ThrowIt();
                     mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
@@ -106,37 +89,7 @@ public class ThrowBall : MonoBehaviour {
                 justThrown = false;
             }
 
-            //if (Input.GetButtonDown("Fire2")) {
-            //    canParry = true;
-            //}
-
-            if (Input.GetButton("Fire2") && chargeTimer < maxCharge) {
-                anim.SetBool("WindUp", true);
-                chargeTimer += Time.deltaTime;
-                projectile.GetComponent<TrailRenderer>().enabled = true;
-            } else if (Input.GetButton("Fire2") && chargeTimer >= maxCharge) {
-                chargeTimer = 1.5f;
-            }
-
-            if (Input.GetButtonUp("Fire2") && chargeTimer > (maxCharge - 0.1f)) {
-
-                float prevVelocity = velocity;
-                float prevMass = mass;
-                mass *= 2000;
-                velocity *= 2;
-                mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-                ThrowIt();
-                velocity = prevVelocity;
-                mass = prevMass;
-                chargeTimer = 0.0f;
-                justThrown = true;
-                projectile.GetComponent<TrailRenderer>().enabled = false;
-
-            } else if (Input.GetButtonUp("Fire2") && chargeTimer < (maxCharge - 0.1f)) {
-                chargeTimer = 0.0f;
-                anim.SetBool("WindUp", false);
-                projectile.GetComponent<TrailRenderer>().enabled = false;
-            }
+           
         }
 
         
@@ -159,7 +112,7 @@ public class ThrowBall : MonoBehaviour {
         //ball.GetComponent<Rigidbody2D>().AddForce(normalizedDirection * velocity);
         ball.GetComponent<Rigidbody2D>().velocity = (normalizedDirection * velocity);
         //ball.GetComponent<Rigidbody2D>().AddTorque(torque, ForceMode2D.Impulse);
-        ball.GetComponent<BallScript>().english = english;
+        //ball.GetComponent<BallScript>().english = english;
         Destroy(ball, ballLifetime);
         justThrown = true;
         

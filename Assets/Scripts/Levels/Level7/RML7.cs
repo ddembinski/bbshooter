@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RML6 : MonoBehaviour {
+public class RML7 : MonoBehaviour {
 
     public GameObject[] switches;
     public GameObject[] doors;

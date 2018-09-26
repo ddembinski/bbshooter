@@ -17,7 +17,7 @@ public class Switch : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.GetComponent<Collider2D>().name != "ParryCollider" && collision.GetComponent<Collider2D>().name != "Vision") {
+        if (collision.GetComponent<Collider2D>().name != "Vision") {
             gameObject.GetComponent<SpriteRenderer>().sprite = switchOn.GetComponent<SpriteRenderer>().sprite;
             isOn = true;
             gameObject.GetComponent<SwitchSound>().PlayNoise();
@@ -26,15 +26,12 @@ public class Switch : MonoBehaviour {
     }
 
     void OnTriggerStay2D(Collider2D collision) {
-        if (collision.GetComponent<Collider2D>().tag == "Enemy") {
-            //
-        }
+            gameObject.GetComponent<SpriteRenderer>().sprite = switchOn.GetComponent<SpriteRenderer>().sprite;
+            isOn = true;
     }
 
     void OnTriggerExit2D(Collider2D collision) {
-        if (collision.GetComponent<Collider2D>().name != "ParryCollider") {
-            StartCoroutine(SwitchDelayOff(0.7f));
-        }
+        StartCoroutine(SwitchDelayOff(0.7f));
     }
 
     public void SwitchOff() {

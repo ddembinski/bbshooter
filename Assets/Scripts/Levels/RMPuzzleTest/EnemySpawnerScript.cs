@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawnerScript : MonoBehaviour {
 
     public GameObject enemy;
-    private GameObject[] numberOfEnemies;
+    //private GameObject[] numberOfEnemies;
     public int maxEnemies = 1;
     Vector2 whereToSpawn;
     public GameObject initialTarget;
@@ -25,7 +25,7 @@ public class EnemySpawnerScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         whereToSpawn = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         initialTargetVector = new Vector2(initialTarget.transform.position.x, initialTarget.transform.position.y);
     }
 

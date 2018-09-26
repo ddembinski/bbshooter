@@ -11,22 +11,6 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1260059682064136}
   m_IsPrefabAsset: 1
---- !u!1 &1027084170640724
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4625407456942652}
-  - component: {fileID: 58108361674702704}
-  m_Layer: 13
-  m_Name: ParryCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1260059682064136
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +25,6 @@ GameObject:
   - component: {fileID: 114360223572651454}
   - component: {fileID: 50801537072291570}
   - component: {fileID: 61614605172034624}
-  - component: {fileID: 122518414293428148}
   m_Layer: 13
   m_Name: Player
   m_TagString: Player
@@ -64,19 +47,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4625407456942652
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1027084170640724}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4712067442103352}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4712067442103352
 Transform:
   m_ObjectHideFlags: 1
@@ -88,7 +58,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4714853789329590}
-  - {fileID: 4625407456942652}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811770737446308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 0.41, z: 0}
+  m_LocalPosition: {x: 0.12, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4712067442103352}
@@ -125,21 +94,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58108361674702704
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1027084170640724}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!61 &61614605172034624
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -224,17 +178,6 @@ MonoBehaviour:
   slowdownLength: 0.25
   ballLifetime: 2
   canParry: 0
---- !u!122 &122518414293428148
-Halo:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1260059682064136}
-  m_Enabled: 0
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294289684
-  m_Size: 5
 --- !u!212 &212203664070039564
 SpriteRenderer:
   m_ObjectHideFlags: 1

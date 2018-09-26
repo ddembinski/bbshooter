@@ -10,7 +10,7 @@ public class RML5 : MonoBehaviour {
     public GameObject exitDoor;
     public GameObject spawner;
     public int maxEnemies = 1;
-    private GameObject[] numberOfEnemies;
+    //private GameObject[] numberOfEnemies;
     public int switchesOn = 0;
     public int doorsOpen = 0;
     public int SFXplayed = 1;
@@ -85,7 +85,7 @@ public class RML5 : MonoBehaviour {
     }
 
     void Update() {
-        numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (doorsOpen == doors.Length) {
             roomComplete = true;
             if (SFXplayed > 0) {

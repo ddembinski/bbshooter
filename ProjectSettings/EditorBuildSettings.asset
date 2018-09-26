@@ -24,11 +24,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Level.unity
     guid: 949207fdcd28cbe4495e460cd7c0f4a5
   - enabled: 1
+    path: Assets/Scenes/Level8.unity
+    guid: 551dd565fd47bd142834ef0fe49cc4a6
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 9e62eab32ad494840b03d80c93a485b6
   - enabled: 1
+    path: Assets/Scenes/Level10.unity
+    guid: 2557ac84bda956846a5616f2de4c07de
+  - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: c29ae3965856e6445916986739367139
+  - enabled: 1
+    path: Assets/Scenes/Level9.unity
+    guid: 7ada19709f00e1b46b8ffa31b74578e9
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: c72a0fbfaa0324b449ca9f99b4a8c4a2
@@ -44,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level6.unity
     guid: 46c92b6a1a1c3114b9dfe07199522ded
+  - enabled: 1
+    path: Assets/Scenes/Level7.unity
+    guid: 3f69d841213238e448112612c08d3b17
   - enabled: 1
     path: Assets/Scenes/Arena.unity
     guid: 6e885eb0621e81245b5a243994199ec5

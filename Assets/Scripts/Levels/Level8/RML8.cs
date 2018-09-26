@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RML6 : MonoBehaviour {
+public class RML8 : MonoBehaviour {
 
     public GameObject[] switches;
     public GameObject[] doors;
@@ -29,7 +29,9 @@ public class RML6 : MonoBehaviour {
     }
 
     void Start() {
-        GetActiveSwitches();
+        //GetActiveSwitches();
+        OpenDoor(doors[0]);
+        doors[0].GetComponent<Collider2D>().enabled = false;
         roomComplete = false;
     }
 
@@ -48,10 +50,10 @@ public class RML6 : MonoBehaviour {
             OpenDoor(doors[i]);
             doors[i].GetComponent<Collider2D>().enabled = false;
         }*/
-        if (switchesOn == switches.Length) {
+        /*if (switchesOn == switches.Length) {
             OpenDoor(doors[0]);
             doors[0].GetComponent<Collider2D>().enabled = false;
-        }
+        }*/
     }
 
     public void CloseDoors() {
@@ -90,14 +92,14 @@ public class RML6 : MonoBehaviour {
 
     void Update() {
         //numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (switchesOn == switches.Length) {
+        /*if (switchesOn == switches.Length) {
             roomComplete = true;
             if (SFXplayed > 0) {
                 PlayNoise(noise2);
                 SFXplayed = 0;
             }
-        }
-        if (!roomComplete) {
+        }*/
+        /*if (!roomComplete) {
             GetActiveSwitches();
             CloseDoors();
             OpenDoors();
@@ -105,7 +107,8 @@ public class RML6 : MonoBehaviour {
 
             }
 
-        }
+        }*/
+
         /*if (numberOfEnemies.Length < maxEnemies) {
             spawner.GetComponent<EnemySpawnerScript>().SpawnPeacefulEnemy();
         }*/

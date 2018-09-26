@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class L3ESpawner : MonoBehaviour {
+public class L8ESpawner : MonoBehaviour {
 
     public GameObject enemy;
     private GameObject[] numberOfEnemies;
@@ -18,7 +18,7 @@ public class L3ESpawner : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if ((numberOfEnemies.Length < 1) && (GameObject.Find("RoomManager").GetComponent<RML3>().roomComplete == false)) {
+        if ((numberOfEnemies.Length < 1) && (GameObject.Find("RoomManager").GetComponent<RML8>().roomComplete == false)) {
             //GameObject cretin = 
             Instantiate(enemy, whereToSpawn, Quaternion.identity);
         }
