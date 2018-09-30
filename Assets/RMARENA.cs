@@ -33,6 +33,7 @@ public class RMARENA : MonoBehaviour {
     }
 
     void Start() {
+        BGMusicPlayer.Instance.gameObject.GetComponent<AudioSource>().Pause();
         GetActiveSwitches();
         roomComplete = false;
         for (int i = 0; i < doors.Length; i++) {

@@ -210,6 +210,11 @@ Prefab:
       propertyPath: m_Name
       value: AutomaticDoor1
       objectReference: {fileID: 0}
+    - target: {fileID: 114370762223885856, guid: c67307114ffe8914fa0f01734bdc0885,
+        type: 2}
+      propertyPath: willAllowThrough
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
   m_IsPrefabAsset: 0
@@ -1064,6 +1069,11 @@ Prefab:
     - target: {fileID: 1366214666829346, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
       propertyPath: m_Name
       value: AutomaticDoor2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114370762223885856, guid: c67307114ffe8914fa0f01734bdc0885,
+        type: 2}
+      propertyPath: willAllowThrough
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
@@ -24213,6 +24223,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 114370762223885856, guid: c67307114ffe8914fa0f01734bdc0885,
+        type: 2}
+      propertyPath: willAllowThrough
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
   m_IsPrefabAsset: 0
@@ -24302,6 +24317,11 @@ Prefab:
     - target: {fileID: 1366214666829346, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
       propertyPath: m_Name
       value: AutomaticDoor4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114370762223885856, guid: c67307114ffe8914fa0f01734bdc0885,
+        type: 2}
+      propertyPath: willAllowThrough
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
@@ -25249,6 +25269,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 114370762223885856, guid: c67307114ffe8914fa0f01734bdc0885,
+        type: 2}
+      propertyPath: willAllowThrough
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
   m_IsPrefabAsset: 0
@@ -25299,6 +25324,11 @@ Prefab:
     - target: {fileID: 1366214666829346, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
       propertyPath: m_Name
       value: AutomaticDoor3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114370762223885856, guid: c67307114ffe8914fa0f01734bdc0885,
+        type: 2}
+      propertyPath: willAllowThrough
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
@@ -25870,6 +25900,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 114370762223885856, guid: c67307114ffe8914fa0f01734bdc0885,
+        type: 2}
+      propertyPath: willAllowThrough
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
   m_IsPrefabAsset: 0
@@ -25919,6 +25954,11 @@ Prefab:
     - target: {fileID: 4766771229608006, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114370762223885856, guid: c67307114ffe8914fa0f01734bdc0885,
+        type: 2}
+      propertyPath: willAllowThrough
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67307114ffe8914fa0f01734bdc0885, type: 2}

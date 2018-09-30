@@ -18,7 +18,7 @@ public class L8ESpawner : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if ((numberOfEnemies.Length < 1) && (GameObject.Find("RoomManager").GetComponent<RML8>().roomComplete == false)) {
+        if ((numberOfEnemies.Length < maxEnemies) && (GameObject.Find("RoomManager").GetComponent<RML8>().roomComplete == false)) {
             //GameObject cretin = 
             Instantiate(enemy, whereToSpawn, Quaternion.identity);
         }

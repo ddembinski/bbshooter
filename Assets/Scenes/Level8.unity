@@ -23866,9 +23866,9 @@ MonoBehaviour:
   SFXplayed: 1
   anim: {fileID: 1160419679}
   roomComplete: 0
-  noise1: {fileID: 0}
-  noise2: {fileID: 0}
-  audioS: {fileID: 0}
+  noise1: {fileID: 8300000, guid: a0cf0f2aa9b650541b60739086a8ceb4, type: 3}
+  noise2: {fileID: 8300000, guid: 612751d3da4e8c84aa3e7bfa556a15e0, type: 3}
+  audioS: {fileID: 1290702393}
 --- !u!4 &1198027059
 Transform:
   m_ObjectHideFlags: 0
@@ -24017,6 +24017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1327359506}
   - component: {fileID: 1327359505}
+  - component: {fileID: 1327359507}
   m_Layer: 0
   m_Name: strange1_loop
   m_TagString: Untagged
@@ -24133,6 +24134,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327359507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327359504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6d65ec377546c4aa1804c280a9c46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1643976371
 GameObject:
   m_ObjectHideFlags: 0
@@ -24142,7 +24154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1643976373}
   - component: {fileID: 1643976372}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24312,7 +24324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1774158747}
   - component: {fileID: 1774158746}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
